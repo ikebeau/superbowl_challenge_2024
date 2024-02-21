@@ -1,0 +1,99 @@
+---
+title: "NFL Commericial Twitter Analysis"
+format: html
+editor: visual
+---
+
+
+```{r}
+library(tidyverse)
+library(pander)
+
+# load in data
+keywords_original <- read.csv("C:/Users/annak/OneDrive/College/USU_Superbowl24/Final Keywords_2024.csv")
+result <- read.csv("C:/Users/annak/OneDrive/College/USU_Superbowl24/count_three_days.csv")
+brandSummary <- read.csv("C:/Users/annak/OneDrive/College/USU_Superbowl24/Quarter and Brand Result.csv")
+twitter <- read.csv("C:/Users/annak/OneDrive/College/USU_Superbowl24/keywords file 2024_students.csv")
+```
+
+
+
+```{r}
+# filter it down to only necessary columns
+# keywords, traffic, tweetID, post, impressions, sentiment analysis, date 
+keywords <- select(keywords_original, c(conversation_id, author_id, text, id, public_metrics.reply_count, public_metrics.like_count, public_metrics.retweet_count, public_metrics.quote_count, public_metrics.impression_count, entities.hashtags, keyword)) |> 
+  mutate(interactions = public_metrics.reply_count + 
+                        public_metrics.like_count + 
+                        public_metrics.retweet_count +
+                        public_metrics.quote_count +
+                        public_metrics.impression_count)
+
+full <- full_join(twitter, result, by = "brandname")
+complete <- full_join(brandSummary, full, by = "brandname")
+
+```
+
+
+
+```{r}
+df_summarised <- keywords %>%
+  group_by(keyword) %>%
+  mutate(total_interactions = sum(interactions),
+         bang_for_buck = 7000000 / total_interactions) |> 
+  filter(keyword %in% c("Progressive", "Verizon", "deadpool")) |> 
+  select(keyword, total_interactions, bang_for_buck)
+
+hist_inter <- df_summarised %>%
+  ggplot(aes(x=keyword, y=total_interactions)) +
+  geom_bar(stat="identity")
+
+print(hist_inter)
+```
+
+
+```{r}
+verizon_summary <- df_summarised %>%
+  filter(keyword == "Verizon")
+
+verizon_total_interactions <- sum(verizon_summary$total_interactions)
+verizon_bang_for_buck <- 7000000 / verizon_total_interactions
+
+verizon_bang_for_buck
+
+
+
+scientific_notation <- 1.483175e-05
+regular_number <- format(scientific_notation, scientific = FALSE)
+
+regular_number
+```
+
+
+```{r}
+deadpool_summary <- df_summarised %>%
+  filter(keyword == "deadpool")
+
+deadpool_total_interactions <- sum(deadpool_summary$total_interactions)
+deadpool_bang_for_buck <- 7000000 / deadpool_total_interactions
+
+scientific_notation <- deadpool_bang_for_buck
+regular_number2 <- format(scientific_notation, scientific = FALSE)
+
+regular_number2
+```
+
+
+
+```{r}
+progressive_summary <- df_summarised %>%
+  filter(keyword == "Progressive")
+
+progressive_total_interactions <- sum(progressive_summary$total_interactions)
+progressive_bang_for_buck <- 7000000 / progressive_total_interactions
+
+scientific_notation <- progressive_bang_for_buck
+regular_number3 <- format(scientific_notation, scientific = FALSE)
+
+regular_number3
+```
+
