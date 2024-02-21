@@ -1,1 +1,9 @@
-# superbowl_comp_2024
+# Super Bowl 2024 Ad Analytics Challenge - USU
+
+Welcome to the GitHub repository for the Utah State University's Game Day Analytics Challenge, focused on analyzing the 2024 Super Bowl advertisements. This project is dedicated to unraveling the stories behind the Super Bowl ads and determining which brands emerged as the winners in the advertising showdown. Our analysis delves deep into Twitter data to uncover insights on ad performance, engagement, and overall impact.
+
+In this competition, we evaluate the effectiveness of Super Bowl 2024 advertisements by conducting a time series analysis of Twitter data. Given the enormous costs associated with Super Bowl ad spots—reaching up to $7 million for 30 seconds—understanding the real-time impact and value of these investments is crucial. Our research, based on 171,454 tweets, utilizes time series decomposition and autocorrelation techniques to identify patterns of audience engagement and sentiment. The results shed light on the temporal dynamics of ad performance on social media, providing actionable insights for maximizing advertising ROI. This investigation underscores the significance of integrating social media analytics with time series analysis to enhance advertising strategies during major events.
+
+Despite the high cost of acquiring Twitter data—$100 per 10,000 tweets—we analyzed a dataset of 171,454 tweets to measure how Super Bowl ads resonate with viewers. This endeavor aims to provide valuable insights for companies contemplating their advertising expenditures. By examining Twitter/X's reaction to these ads, we gain a nuanced understanding of their visibility and impact. Our research offers a unique perspective on the effectiveness of Super Bowl ads, highlighting the importance of social media engagement in evaluating advertising success. 
+
+Thank you for visiting our repository. We hope our research provides valuable insights into the effectiveness of Super Bowl advertisements and sparks further exploration into the power of social media analytics.
