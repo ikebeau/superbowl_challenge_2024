@@ -1,4 +1,4 @@
-# Super Bowl 2024 Ad Analytics Challenge - USU
+# Super Bowl 2024 Ad Analytics Challenge - UVU
 
 Welcome to the GitHub repository for the Utah State University's Game Day Analytics Challenge, focused on analyzing the 2024 Super Bowl advertisements. This project is dedicated to unraveling the stories behind the Super Bowl ads and determining which brands emerged as the winners in the advertising showdown. Our analysis delves deep into Twitter data to uncover insights on ad performance, engagement, and overall impact.
 
